@@ -67,3 +67,4 @@ saved_jobs/
 *.json
 .env
 .pypirc
+*.save
