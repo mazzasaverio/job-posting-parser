@@ -52,7 +52,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           # Run semantic release and capture output
-          uv tool run semantic-release version --print > release_output.txt 2>&1 || true
+          uv tool run python-semantic-release version --print > release_output.txt 2>&1 || true
           cat release_output.txt
           
           # Check if a new version was created
