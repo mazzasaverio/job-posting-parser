@@ -22,8 +22,14 @@ jobs:
       with:
         python-version: '3.12'
     
+    - name: Create virtual environment
+      run: uv venv .venv
+
+    - name: Activate virtual environment
+      run: echo ".venv/bin" >> $GITHUB_PATH
+
     - name: Install dependencies
-      run: uv pip install build
+      run: uv pip install --system build
     
     - name: Build package
       run: uv build

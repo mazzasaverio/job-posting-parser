@@ -4,7 +4,7 @@
 [![Python Version](https://img.shields.io/badge/python-3.12%2B-blue)](https://www.python.org/downloads/)
 [![PyPI Version](https://img.shields.io/pypi/v/job-posting-parser)](https://pypi.org/project/job-posting-parser/)
 
-Extract structured data from job postings using OpenAI's structured output capabilities.
+Extract structured data from job postings using OpenAI's structured output capabilities
 
 ## Features
 
