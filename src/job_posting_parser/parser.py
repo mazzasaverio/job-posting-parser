@@ -10,6 +10,7 @@ from .models import JobPosting
 from .scraper import JobPostingScraper
 
 
+# TODO: add a way to pass a custom prompt to the parser
 class JobPostingParser:
     def __init__(
         self,
