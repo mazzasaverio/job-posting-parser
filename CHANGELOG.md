@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.1.5 (2025-05-24)
+
+### Bug Fixes
+
+- Bug
+  ([`fc4d51b`](https://github.com/mazzasaverio/job-posting-parser/commit/fc4d51b438a6f9eb5c3747dd54c7e39ab3914307))
+
+
 ## v0.1.4 (2025-05-24)
 
 ### Bug Fixes
