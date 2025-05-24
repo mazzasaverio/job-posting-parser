@@ -56,7 +56,8 @@ jobs:
         run: |
           VERSION=$(python -c "import re; print(re.search(r'__version__ = \"([^\"]+)\"', open('src/job_posting_parser/__init__.py').read()).group(1))")
           sed -i "s/^version = \".*\"/version = \"$VERSION\"/" pyproject.toml
-          cat pyproject.toml
+          echo "pyproject.toml after sync:"
+          grep version pyproject.toml
 
       - name: Build package
         if: steps.semantic_release.outputs.tag_name != ''
