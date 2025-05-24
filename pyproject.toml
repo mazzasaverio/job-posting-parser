@@ -1,6 +1,6 @@
 [project]
 name = "job-posting-parser"
-version = "0.1.7"
+version = "0.1.8"
 description = "Extract structured data from job postings using OpenAI"
 authors = [
     {name = "Saverio Mazza", email = "saverio3107@gmail.com"},
