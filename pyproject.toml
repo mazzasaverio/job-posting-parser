@@ -51,7 +51,10 @@ dev-dependencies = [
 ]
 
 [tool.semantic_release]
-version_variable = "src/job_posting_parser/__init__.py:__version__"
+version_variable = [
+    "src/job_posting_parser/__init__.py:__version__",
+    "pyproject.toml:project.version"
+]
 branch = "master"
 upload_to_pypi = false
 

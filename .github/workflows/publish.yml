@@ -39,14 +39,21 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           semantic-release version
-          echo "tag_created=$(git tag --points-at HEAD)" >> $GITHUB_OUTPUT
+          echo "tag_name=$(git tag --points-at HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Show version after bump
+        run: |
+          echo "init:"
+          cat src/job_posting_parser/__init__.py
+          echo "pyproject:"
+          grep version pyproject.toml
 
       - name: Build package
-        if: steps.semantic_release.outputs.tag_created != ''
+        if: steps.semantic_release.outputs.tag_name != ''
         run: uv build
 
       - name: Publish to PyPI
-        if: steps.semantic_release.outputs.tag_created != ''
+        if: steps.semantic_release.outputs.tag_name != ''
         env:
           UV_PUBLISH_TOKEN: ${{ secrets.PYPI_TOKEN }}
         run: uv publish
