@@ -68,3 +68,4 @@ saved_jobs/
 .env
 .pypirc
 *.save
+.pypirc

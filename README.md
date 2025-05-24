@@ -1,5 +1,9 @@
 # Job Posting Parser
 
+[![PyPI Downloads](https://static.pepy.tech/badge/job-posting-parser)](https://pepy.tech/projects/job-posting-parser)
+[![Python Version](https://img.shields.io/badge/python-3.12%2B-blue)](https://www.python.org/downloads/)
+[![PyPI Version](https://img.shields.io/pypi/v/job-posting-parser)](https://pypi.org/project/job-posting-parser/)
+
 Extract structured data from job postings using OpenAI's structured output capabilities.
 
 ## Features
