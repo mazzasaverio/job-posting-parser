@@ -56,15 +56,12 @@ version_toml = ["pyproject.toml:project.version"]
 version_pattern = [
     "src/job_posting_parser/__init__.py:__version__ = \"{version}\"",
 ]
-
 branch = "master"
-# Remove upload_to_pypi = false to allow manual PyPI publishing in workflow
 build_command = "uv build"
 # Use conventional commits for automatic version bumping
-commit_parser = "angular"
+commit_parser = "conventional"
 # Create changelog
-changelog.template_dir = "templates"
-changelog.changelog_file = "CHANGELOG.md"
+changelog.default_templates.changelog_file = "CHANGELOG.md"
 
 [tool.semantic_release.branches.master]
 match = "master"
