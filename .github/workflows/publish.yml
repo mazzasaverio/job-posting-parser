@@ -22,11 +22,17 @@ jobs:
           token: ${{ secrets.GH_TOKEN }}  # Use personal token for pushing tags
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v6
         with:
           enable-cache: true
-          cache-dependency-glob: "uv.lock"
-          version: "0.7.8"
+          cache-dependency-glob: |
+            **/pyproject.toml
+            **/uv.lock
+
+      - name: Install Python and dependencies
+        run: |
+          uv python install  # Installs Python based on .python-version
+          uv sync --all-extras --dev
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -34,11 +40,13 @@ jobs:
           python-version-file: ".python-version"
 
       - name: Install dependencies
-        run: uv pip install --system build python-semantic-release
+        run: uv sync --all-extras --dev
 
       - name: Run tests
         run: uv run pytest
 
+      - name: Install semantic-release
+        run: uv tool install python-semantic-release
       - name: Configure Git for semantic-release
         run: |
           git config --global user.name "github-actions[bot]"
@@ -50,7 +58,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           # Run semantic release and capture output
-          semantic-release version --print > release_output.txt 2>&1 || true
+          uv tool run semantic-release version --print > release_output.txt 2>&1 || true
           cat release_output.txt
           
           # Check if a new version was created
