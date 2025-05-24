@@ -1,6 +1,6 @@
 [project]
 name = "job-posting-parser"
-version = "0.1.0"
+version = "0.0.0"
 description = "Extract structured data from job postings using OpenAI"
 authors = [
     {name = "Saverio Mazza", email = "saverio3107@gmail.com"},
@@ -47,7 +47,13 @@ dev-dependencies = [
     "black>=24.0.0",
     "isort>=5.13.0",
     "pre-commit>=3.7.0",
+    "python-semantic-release>=8.0.0"
 ]
+
+[tool.semantic_release]
+version_variable = "src/job_posting_parser/__init__.py:__version__"
+branch = "master"
+upload_to_pypi = false
 
 [tool.ruff]
 line-length = 88
