@@ -224,5 +224,4 @@ This project follows [Semantic Versioning](https://semver.org/). For the version
 5. Open a Pull Request
 
 ## License
-
 MIT License - see LICENSE file for details.
