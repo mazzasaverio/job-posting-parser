@@ -1,6 +1,8 @@
 """Job Posting Parser - Extract structured data from job postings using OpenAI"""
 
-__version__ = "0.1.5"
+import importlib.metadata
+
+__version__ = importlib.metadata.version("job-posting-parser")
 
 from .config import config
 from .models import JobPosting
