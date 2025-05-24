@@ -8,6 +8,9 @@ on:
 permissions:
   contents: write
 
+env:
+  UV_SYSTEM_PYTHON: 1
+
 jobs:
   test-version-publish:
     runs-on: ubuntu-latest
@@ -21,11 +24,12 @@ jobs:
         with:
           enable-cache: true
           cache-dependency-glob: "uv.lock"
+          version: "0.7.8"  # Pin a una versione stabile di uv
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version-file: ".python-version"
 
       - name: Install dependencies
         run: uv pip install --system build python-semantic-release
