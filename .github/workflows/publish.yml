@@ -50,3 +50,6 @@ jobs:
         env:
           UV_PUBLISH_TOKEN: ${{ secrets.PYPI_TOKEN }}
         run: uv publish
+
+      - name: Prune uv cache (CI best practice)
+        run: uv cache prune --ci
